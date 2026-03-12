@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands Reference Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #fff;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        h2:first-of-type {
+            margin-top: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        tbody tr:hover {
+            background-color: #f8f9ff;
+            transition: background-color 0.3s ease;
+        }
+
+        td:first-child {
+            font-family: 'Courier New', Courier, monospace;
+            color: #6b4ba0;
+            font-weight: bold;
+            font-size: 0.95em;
+            width: 30%;
+        }
+
+        td:nth-child(2) {
+            color: #4a5568;
+            line-height: 1.6;
+            width: 40%;
+        }
+
+        td:last-child {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f7f9fc;
+            color: #5a67d8;
+            font-size: 0.9em;
+            width: 30%;
+        }
+
+        .note {
+            background-color: #fef5e7;
+            border-left: 4px solid #f39c12;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            color: #7d6608;
+        }
+
+        .note strong {
+            color: #9c7d0c;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🚀 Git Commands Reference Guide</h1>
+        <div class="intro">
+            <p>This is a comprehensive guide to Git commands for version control.</p>
+            <p>Learn the essential commands to manage your code repositories effectively.</p>
+        </div>
+
+        <!-- BASIC GIT COMMANDS -->
+        <h2>📘 Basic Git Commands</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>git init</td>
+                    <td>Initialize a new Git repository in the current directory</td>
+                    <td>git init</td>
+                </tr>
+                <tr>
+                    <td>git clone [url]</td>
+                    <td>Create a local copy of a remote repository</td>
+                    <td>git clone https://github.com/user/repo.git</td>
+                </tr>
+                <tr>
+                    <td>git status</td>
+                    <td>Show the current state of the working directory and staging area</td>
+                    <td>git status</td>
+                </tr>
+                <tr>
+                    <td>git add [file]</td>
+                    <td>Add specific file changes to the staging area</td>
+                    <td>git add index.html</td>
+                </tr>
+                <tr>
+                    <td>git add .</td>
+                    <td>Add all changed files in current directory to staging area</td>
+                    <td>git add .</td>
+                </tr>
+                <tr>
+                    <td>git commit -m "[message]"</td>
+                    <td>Save staged changes with message (-m flag means "message")</td>
+                    <td>git commit -m "this is message of v1"</td>
+                </tr>
+                <tr>
+                    <td>git log</td>
+                    <td>Display the commit history with full details</td>
+                    <td>git log</td>
+                </tr>
+                <tr>
+                    <td>git log --oneline</td>
+                    <td>Show commit history in compact single-line format</td>
+                    <td>git log --oneline</td>
+                </tr>
+                <tr>
+                    <td>git log [file]</td>
+                    <td>Show commit history for a specific file</td>
+                    <td>git log .gitignore</td>
+                </tr>
+                <tr>
+                    <td>git show [commit-id]</td>
+                    <td>Display details and changes of a specific commit</td>
+                    <td>git show a3f5b2c</td>
+                </tr>
+                <tr>
+                    <td>git diff</td>
+                    <td>Show differences between working directory and last commit</td>
+                    <td>git diff</td>
+                </tr>
+                <tr>
+                    <td>git diff [file]</td>
+                    <td>Show changes in a specific file</td>
+                    <td>git diff index.html</td>
+                </tr>
+                <tr>
+                    <td>git push</td>
+                    <td>Upload local commits to the remote repository</td>
+                    <td>git push origin main</td>
+                </tr>
+                <tr>
+                    <td>git pull</td>
+                    <td>Download and merge changes from remote repository</td>
+                    <td>git pull origin main</td>
+                </tr>
+                <tr>
+                    <td>git remote -v</td>
+                    <td>Display all remote repositories linked to local repo</td>
+                    <td>git remote -v</td>
+                </tr>
+                <tr>
+                    <td>git fetch</td>
+                    <td>Download changes from remote without merging</td>
+                    <td>git fetch origin</td>
+                </tr>
+                <tr>
+                    <td>git reset [file]</td>
+                    <td>Remove file from staging area (unstage)</td>
+                    <td>git reset index.html</td>
+                </tr>
+                <tr>
+                    <td>git rm [file]</td>
+                    <td>Delete file from working directory and stage deletion</td>
+                    <td>git rm old-file.txt</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>📝 Note about -m flag:</strong>
+            The -m flag stands for "message" and allows you to write commit message inline. Without it, Git opens a text
+            editor for the message.
+        </div>
+
+        <!-- GIT IGNORE -->
+        <h2>🚫 Git Ignore</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>touch .gitignore</td>
+                    <td>Create a .gitignore file to specify files to ignore</td>
+                    <td>touch .gitignore</td>
+                </tr>
+                <tr>
+                    <td>echo "[pattern]" >> .gitignore</td>
+                    <td>Add a pattern to gitignore file</td>
+                    <td>echo "node_modules/" >> .gitignore</td>
+                </tr>
+                <tr>
+                    <td>git rm --cached [file]</td>
+                    <td>Remove file from Git tracking but keep in directory</td>
+                    <td>git rm --cached secrets.txt</td>
+                </tr>
+                <tr>
+                    <td>git check-ignore -v [file]</td>
+                    <td>Check if file is ignored and which rule causes it</td>
+                    <td>git check-ignore -v file.log</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- GIT BRANCHES -->
+        <h2>🌿 Git Branches</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>git branch</td>
+                    <td>List all local branches (* shows current branch)</td>
+                    <td>git branch</td>
+                </tr>
+                <tr>
+                    <td>git branch -a</td>
+                    <td>List all branches including remote branches</td>
+                    <td>git branch -a</td>
+                </tr>
+                <tr>
+                    <td>git branch [name]</td>
+                    <td>Create a new branch with specified name</td>
+                    <td>git branch feature-login</td>
+                </tr>
+                <tr>
+                    <td>git checkout [branch]</td>
+                    <td>Switch to a different branch</td>
+                    <td>git checkout main</td>
+                </tr>
+                <tr>
+                    <td>git checkout -b [name]</td>
+                    <td>Create new branch and switch to it immediately</td>
+                    <td>git checkout -b feature-signup</td>
+                </tr>
+                <tr>
+                    <td>git switch [branch]</td>
+                    <td>Switch to another branch (newer alternative to checkout)</td>
+                    <td>git switch develop</td>
+                </tr>
+                <tr>
+                    <td>git switch -c [name]</td>
+                    <td>Create and switch to new branch in one command</td>
+                    <td>git switch -c hotfix-bug</td>
+                </tr>
+                <tr>
+                    <td>git branch -d [name]</td>
+                    <td>Delete a branch (only if merged)</td>
+                    <td>git branch -d feature-login</td>
+                </tr>
+                <tr>
+                    <td>git branch -D [name]</td>
+                    <td>Force delete a branch (even if not merged)</td>
+                    <td>git branch -D old-feature</td>
+                </tr>
+                <tr>
+                    <td>git branch -m [new-name]</td>
+                    <td>Rename the current branch</td>
+                    <td>git branch -m better-name</td>
+                </tr>
+                <tr>
+                    <td>git push origin --delete [branch]</td>
+                    <td>Delete a remote branch</td>
+                    <td>git push origin --delete feature-old</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- GIT MERGE & CONFLICTS -->
+        <h2>🔀 Git Merge & Conflicts</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>git merge [branch]</td>
+                    <td>Merge specified branch into current branch</td>
+                    <td>git merge feature-login</td>
+                </tr>
+                <tr>
+                    <td>git merge --no-ff [branch]</td>
+                    <td>Merge with explicit merge commit (preserves history)</td>
+                    <td>git merge --no-ff feature-x</td>
+                </tr>
+                <tr>
+                    <td>git merge --abort</td>
+                    <td>Cancel merge and return to pre-merge state</td>
+                    <td>git merge --abort</td>
+                </tr>
+                <tr>
+                    <td>git status</td>
+                    <td>Check merge conflicts (shows CONFLICT messages)</td>
+                    <td>git status</td>
+                </tr>
+                <tr>
+                    <td>git diff</td>
+                    <td>View conflicts in files during merge</td>
+                    <td>git diff</td>
+                </tr>
+                <tr>
+                    <td>git add [file]</td>
+                    <td>Mark conflict as resolved after manual editing</td>
+                    <td>git add conflicted-file.js</td>
+                </tr>
+                <tr>
+                    <td>git commit</td>
+                    <td>Complete merge after resolving all conflicts</td>
+                    <td>git commit</td>
+                </tr>
+                <tr>
+                    <td>git log --merge</td>
+                    <td>Show commits causing merge conflicts</td>
+                    <td>git log --merge</td>
+                </tr>
+                <tr>
+                    <td>git checkout --ours [file]</td>
+                    <td>Accept your version during conflict</td>
+                    <td>git checkout --ours app.js</td>
+                </tr>
+                <tr>
+                    <td>git checkout --theirs [file]</td>
+                    <td>Accept incoming branch version during conflict</td>
+                    <td>git checkout --theirs app.js</td>
+                </tr>
+                <tr>
+                    <td>git rebase [branch]</td>
+                    <td>Move or combine commits to new base branch</td>
+                    <td>git rebase main</td>
+                </tr>
+                <tr>
+                    <td>git rebase --continue</td>
+                    <td>Continue rebase after resolving conflicts</td>
+                    <td>git rebase --continue</td>
+                </tr>
+                <tr>
+                    <td>git rebase --abort</td>
+                    <td>Cancel rebase and return to original state</td>
+                    <td>git rebase --abort</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>⚠️ Understanding Merge Conflicts:</strong>
+            Conflicts occur when Git can't automatically merge changes. You must manually edit files, choose which
+            changes to keep, then mark as resolved with git add.
+        </div>
+
+        <!-- GIT STASHING -->
+        <h2>📦 Git Stashing</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>git stash</td>
+                    <td>Save current uncommitted changes temporarily</td>
+                    <td>git stash</td>
+                </tr>
+                <tr>
+                    <td>git stash save "[message]"</td>
+                    <td>Save changes with a descriptive message</td>
+                    <td>git stash save "work in progress"</td>
+                </tr>
+                <tr>
+                    <td>git stash list</td>
+                    <td>Show list of all stashed items with their index</td>
+                    <td>git stash list</td>
+                </tr>
+                <tr>
+                    <td>git stash apply</td>
+                    <td>Apply most recent stash without removing it</td>
+                    <td>git stash apply</td>
+                </tr>
+                <tr>
+                    <td>git stash apply stash@{0}</td>
+                    <td>Apply specific stash by index (0 is most recent)</td>
+                    <td>git stash apply stash@{2}</td>
+                </tr>
+                <tr>
+                    <td>git stash pop</td>
+                    <td>Apply most recent stash and remove it from list</td>
+                    <td>git stash pop</td>
+                </tr>
+                <tr>
+                    <td>git stash pop stash@{0}</td>
+                    <td>Apply and remove specific stash by index</td>
+                    <td>git stash pop stash@{1}</td>
+                </tr>
+                <tr>
+                    <td>git stash drop stash@{0}</td>
+                    <td>Delete specific stash without applying it</td>
+                    <td>git stash drop stash@{0}</td>
+                </tr>
+                <tr>
+                    <td>git stash clear</td>
+                    <td>Remove all stashed items (clean the stash)</td>
+                    <td>git stash clear</td>
+                </tr>
+                <tr>
+                    <td>git stash show</td>
+                    <td>Show changes stored in most recent stash</td>
+                    <td>git stash show</td>
+                </tr>
+                <tr>
+                    <td>git stash show -p</td>
+                    <td>Show full diff of changes in most recent stash</td>
+                    <td>git stash show -p</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note">
+            <strong>💡 Understanding stash@{0}:</strong>
+            The {0} is an index number. stash@{0} is the most recent stash, stash@{1} is the one before that, etc. Think
+            of it like a numbered list where 0 is the newest item.
+        </div>
+
+        <!-- CONFIGURATION -->
+        <h2>⚙️ Git Configuration</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Command</th>
+                    <th>Action</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>git config --global user.name "[name]"</td>
+                    <td>Set username for all Git repositories globally</td>
+                    <td>git config --global user.name "John Doe"</td>
+                </tr>
+                <tr>
+                    <td>git config --global user.email "[email]"</td>
+                    <td>Set email address for all Git repositories globally</td>
+                    <td>git config --global user.email "john@example.com"</td>
+                </tr>
+                <tr>
+                    <td>git config --list</td>
+                    <td>Display all Git configuration settings</td>
+                    <td>git config --list</td>
+                </tr>
+                <tr>
+                    <td>git config user.name</td>
+                    <td>Check current username configuration</td>
+                    <td>git config user.name</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</body>
+
+</html>
